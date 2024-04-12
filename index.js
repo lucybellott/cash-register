@@ -6,6 +6,23 @@
 // Determine whether it is possible to create a specific cash amount from the current items in the drawer
 // Computes the change required from a transaction and removes it from the drawer if possible.
 
+//Each function accepts a drawer array of objects. 
+//Currency types and amounts that may be in the drawer array are represented in integers rather than decimals.
+
+const drawer = [
+    { name: 'penny', value: 1, quantity: 72 },
+    { name: 'nickel', value: 5, quantity: 41 },
+    { name: 'dime', value: 10, quantity: 31 },
+    { name: 'quarter', value: 25, quantity: 17 },
+    { name: 'one', value: 100, quantity: 90 },
+    { name: 'five', value: 500, quantity: 11 }, 
+    { name: 'ten', value: 1_000, quantity: 2 },
+    { name: 'twenty', value: 2_000, quantity: 3 },
+    { name: 'hundred', value: 10_000, quantity: 1 }
+  ]
+
+
+
 
 //Removes a single item from the drawer
 function removeItem(name, drawer){
@@ -38,5 +55,5 @@ function canMakeAmount(target, drawer){
 
 //Calculates the change required from a transaction and removes it from the drawer if possible
 function transaction(cost, paid, drawer){
-    
+
 }
