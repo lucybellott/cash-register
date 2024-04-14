@@ -78,14 +78,34 @@ function countNotes(drawer){
 //Calculates the total amount of money in the drawer as a string formatted in dollars (see example below)
 function sumDrawer(drawer){
 
+  let cents = 0
+  for (let i = 0; i < drawer.length; i++) {
+    cents += drawer[i].value * drawer[i].quantity
+  }
+  return `$${(cents / 100).toFixed(2)}`
+
+
 } 
 
 // Determines whether it is possible to create a specific cash amount from the items in the drawer.
 function canMakeAmount(target, drawer){
 
+  const sortedDrawer = drawer.sort((a, b) => b.value - a.value)
+  let remaining = target
+  
+  for (let i = 0; i < sortedDrawer.length; i++) {
+    const item = sortedDrawer[i];
+    const quantityToUse = Math.min(Math.floor(remaining / item.value), item.quantity)
+    remaining -= quantityToUse * item.value
+  }
+  
+  return remaining === 0;
+
 }
 
 //Calculates the change required from a transaction and removes it from the drawer if possible
 function transaction(cost, paid, drawer){
+
+
 
 }
