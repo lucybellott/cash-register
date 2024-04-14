@@ -52,10 +52,26 @@ function addItem(name, drawer){
 //Counts how many coins are in the drawer
 function countCoins(drawer){
 
+  let totalCoins = 0;
+  for (let i = 0; i < drawer.length; i++) {
+    if (drawer[i].value < 100) {
+      totalCoins += drawer[i].quantity
+    }
+  }
+  return totalCoins
+
 }
 
 //Counts how many notes/bills are in the drawer
 function countNotes(drawer){
+
+  let total = 0
+  for (let i = 0; i < drawer.length; i++) {
+    if (drawer[i].value >= 100) {
+      total += drawer[i].quantity
+    }
+  }
+  return total
 
 } 
 
