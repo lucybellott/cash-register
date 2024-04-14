@@ -27,10 +27,26 @@ const drawer = [
 //Removes a single item from the drawer
 function removeItem(name, drawer){
 
+  for (let i = 0; i < drawer.length; i++) {
+    if (drawer[i].name === name && drawer[i].quantity > 0) {
+      drawer[i].quantity--
+      return true
+    }
+  }
+  return false
+
 }
 
 //Adds a single item to the drawer
 function addItem(name, drawer){
+
+  for (let i = 0; i < drawer.length; i++) {
+    if (drawer[i].name === name) {
+      drawer[i].quantity++
+      return true
+    }
+  }
+  return false
 
 }
 //Counts how many coins are in the drawer
